@@ -1394,10 +1394,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -1524,6 +1520,9 @@ video {
 }
 .align-super {
   vertical-align: super;
+}
+.font-manrope {
+  font-family: Manrope;
 }
 .font-bold {
   font-weight: 700;
