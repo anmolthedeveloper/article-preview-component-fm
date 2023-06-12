@@ -48,9 +48,9 @@
         </div>
         <div
           id="shareBg"
-          class="flex mt-5 px-7 py-5 items-center justify-between bg-veryDarkGrayishBlue rounded-b-lg"
+          class="flex h-20 mt-5 px-7 py-5 items-center justify-between rounded-b-lg"
         >
-          <div id="share" class="flex items-center">
+          <div id="share" class="hidden items-center">
             <p class="tracking-[0.4em] text-grayishBlue">SHARE</p>
             <img
               src="./images/icon-facebook.svg"
@@ -68,7 +68,7 @@
               class="ml-3"
             />
           </div>
-          <div id="details" class="hidden">
+          <div id="details" class="flex">
             <img
               src="./images/avatar-michelle.jpg"
               alt="avatar-michelle"
@@ -84,7 +84,7 @@
             onclick="openMenu();"
             src="./images/icon-share.svg"
             alt="share"
-            class="w-10 h-10 bg-lightGrayishBlue p-3 rounded-full"
+            class="w-10 h-10 p-3 rounded-full bg-lightGrayishBlue"
           />
         </div>
       </div>
@@ -97,10 +97,26 @@
       const share = $("#share");
       const details = $("#details");
       function openMenu() {
-        isMenuOpened = true;
+        isMenuOpened = !isMenuOpened;
 
         if (isMenuOpened) {
-          shareBg;
+          shareImg.attr("src", "./images/icon-share-active.svg");
+          share.removeClass("hidden");
+          share.addClass("flex");
+          details.removeClass("flex");
+          details.addClass("hidden");
+          shareBg.addClass("bg-veryDarkGrayishBlue");
+          shareImg.removeClass("bg-lightGrayishBlue");
+          shareImg.addClass("bg-desaturatedDarkBlue");
+        } else {
+          shareImg.attr("src", "./images/icon-share.svg");
+          share.removeClass("flex");
+          share.addClass("hidden");
+          details.removeClass("hidden");
+          details.addClass("flex");
+          shareBg.removeClass("bg-veryDarkGrayishBlue");
+          shareImg.removeClass("bg-desaturatedDarkBlue");
+          shareImg.addClass("bg-lightGrayishBlue");
         }
       }
     </script>
