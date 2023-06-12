@@ -27,12 +27,12 @@
     class="font-manrope flex justify-center items-center h-screen bg-lightGrayishBlue"
   >
     <div
-      class="lg:w-[45%] flex m-5 flex-col lg:flex-row lg:h-60 rounded-lg bg-white drop-shadow-xl"
+      class="lg:w-[48%] flex m-5 flex-col lg:flex-row rounded-lg bg-white drop-shadow-xl"
     >
       <img
         src="./images/drawers.jpg"
         alt="drawers"
-        class="lg:w-60 lg:h-60 object-cover lg:rounded-l-lg rounded-t-lg"
+        class="lg:w-60 object-cover lg:rounded-t-[0rem] lg:rounded-tl-lg lg:rounded-l-lg rounded-t-lg"
       />
       <div>
         <div class="px-7 pt-10">
@@ -99,24 +99,37 @@
       function openMenu() {
         isMenuOpened = !isMenuOpened;
 
-        if (isMenuOpened) {
-          shareImg.attr("src", "./images/icon-share-active.svg");
-          share.removeClass("hidden");
-          share.addClass("flex");
-          details.removeClass("flex");
-          details.addClass("hidden");
-          shareBg.addClass("bg-veryDarkGrayishBlue");
-          shareImg.removeClass("bg-lightGrayishBlue");
-          shareImg.addClass("bg-desaturatedDarkBlue");
+        if (window.matchMedia("(max-width: 1024px)").matches) {
+          // window is less than 1024px
+          if (isMenuOpened) {
+            shareImg.attr("src", "./images/icon-share-active.svg");
+            share.removeClass("hidden");
+            share.addClass("flex");
+            details.removeClass("flex");
+            details.addClass("hidden");
+            shareBg.addClass("bg-veryDarkGrayishBlue");
+            shareImg.removeClass("bg-lightGrayishBlue");
+            shareImg.addClass("bg-desaturatedDarkBlue");
+          } else {
+            shareImg.attr("src", "./images/icon-share.svg");
+            share.removeClass("flex");
+            share.addClass("hidden");
+            details.removeClass("hidden");
+            details.addClass("flex");
+            shareBg.removeClass("bg-veryDarkGrayishBlue");
+            shareImg.removeClass("bg-desaturatedDarkBlue");
+            shareImg.addClass("bg-lightGrayishBlue");
+          }
         } else {
-          shareImg.attr("src", "./images/icon-share.svg");
-          share.removeClass("flex");
-          share.addClass("hidden");
-          details.removeClass("hidden");
-          details.addClass("flex");
-          shareBg.removeClass("bg-veryDarkGrayishBlue");
-          shareImg.removeClass("bg-desaturatedDarkBlue");
-          shareImg.addClass("bg-lightGrayishBlue");
+          if (isMenuOpened) {
+            shareImg.attr("src", "./images/icon-share-active.svg");
+            shareImg.removeClass("bg-lightGrayishBlue");
+            shareImg.addClass("bg-desaturatedDarkBlue");
+          } else {
+            shareImg.attr("src", "./images/icon-share.svg");
+            shareImg.removeClass("bg-desaturatedDarkBlue");
+            shareImg.addClass("bg-lightGrayishBlue");
+          }
         }
       }
     </script>
