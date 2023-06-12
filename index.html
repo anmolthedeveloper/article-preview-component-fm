@@ -36,7 +36,7 @@
       />
       <div>
         <div class="px-7 pt-10">
-          <p class="text-xl font-bold">
+          <p class="text-xl font-bold text-veryDarkGrayishBlue">
             Shift the overall look and feel by adding these wonderful touches to
             furniture in your home
           </p>
@@ -48,9 +48,16 @@
         </div>
         <div
           id="shareBg"
-          class="flex h-20 mt-5 px-7 py-5 items-center justify-between rounded-b-lg"
+          class="flex lg:relative h-20 mt-5 px-7 py-5 items-center justify-between rounded-b-lg"
         >
-          <div id="share" class="hidden items-center">
+          <div
+            id="pointedDiv"
+            class="hidden w-10 h-10 lg:absolute lg:top-[-3.5rem] lg:right-[2rem] transform rotate-45 bg-veryDarkGrayishBlue lg:z-10"
+          ></div>
+          <div
+            id="share"
+            class="hidden lg:absolute lg:z-20 lg:py-5 lg:px-10 lg:rounded-xl lg:top-[-5.5rem] lg:right-[-4rem] items-center"
+          >
             <p class="tracking-[0.4em] text-grayishBlue">SHARE</p>
             <img
               src="./images/icon-facebook.svg"
@@ -96,6 +103,7 @@
       const shareBg = $("#shareBg");
       const share = $("#share");
       const details = $("#details");
+      const pointedDiv = $("#pointedDiv");
       function openMenu() {
         isMenuOpened = !isMenuOpened;
 
@@ -125,10 +133,18 @@
             shareImg.attr("src", "./images/icon-share-active.svg");
             shareImg.removeClass("bg-lightGrayishBlue");
             shareImg.addClass("bg-desaturatedDarkBlue");
+            share.removeClass("hidden");
+            share.addClass("flex");
+            share.addClass("bg-veryDarkGrayishBlue");
+            pointedDiv.removeClass("hidden");
           } else {
             shareImg.attr("src", "./images/icon-share.svg");
             shareImg.removeClass("bg-desaturatedDarkBlue");
             shareImg.addClass("bg-lightGrayishBlue");
+            share.removeClass("flex");
+            share.addClass("hidden");
+            share.removeClass("bg-veryDarkGrayishBlue");
+            pointedDiv.addClass("hidden");
           }
         }
       }
