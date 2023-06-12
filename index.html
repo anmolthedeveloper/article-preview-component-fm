@@ -22,11 +22,82 @@
 
     <title>Frontend Mentor | Article preview component</title>
   </head>
-  <body class="font-manrope">
-    Shift the overall look and feel by adding these wonderful touches to
-    furniture in your home Ever been in a room and felt like something was
-    missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple
-    tips to help you make any room feel complete. Michelle Appleton 28 Jun 2020
-    Share
+  <body
+    class="font-manrope flex justify-center items-center h-screen bg-lightGrayishBlue"
+  >
+    <div
+      class="lg:w-[45%] flex m-5 flex-col lg:flex-row lg:h-60 rounded-lg bg-white drop-shadow-xl"
+    >
+      <img
+        src="./images/drawers.jpg"
+        alt="drawers"
+        class="lg:w-60 lg:h-60 object-cover lg:rounded-l-lg rounded-t-lg"
+      />
+      <div>
+        <div class="px-7 pt-10">
+          <p class="text-xl font-bold">
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </p>
+          <p class="mt-5 text-desaturatedDarkBlue">
+            Ever been in a room and felt like something was missing? Perhaps it
+            felt slightly bare and uninviting. I’ve got some simple tips to help
+            you make any room feel complete.
+          </p>
+        </div>
+        <div
+          id="shareBg"
+          class="flex mt-5 px-7 py-5 items-center justify-between bg-veryDarkGrayishBlue rounded-b-lg"
+        >
+          <div id="share" class="flex items-center">
+            <p class="tracking-[0.4em] text-grayishBlue">SHARE</p>
+            <img
+              src="./images/icon-facebook.svg"
+              alt="facebook icon"
+              class="ml-3"
+            />
+            <img
+              src="./images/icon-twitter.svg"
+              alt="twitter icon"
+              class="ml-3"
+            />
+            <img
+              src="./images/icon-pinterest.svg"
+              alt="pinterest icon"
+              class="ml-3"
+            />
+          </div>
+          <div id="details" class="hidden">
+            <img
+              src="./images/avatar-michelle.jpg"
+              alt="avatar-michelle"
+              class="rounded-full w-12 h-12 mr-4"
+            />
+            <div class="flex flex-col">
+              <p class="font-bold">Michelle Appleton</p>
+              <p class="text-grayishBlue">28 Jun 2020</p>
+            </div>
+          </div>
+          <img
+            id="shareImg"
+            onclick="openMenu();"
+            src="./images/icon-share.svg"
+            alt="share"
+            class="w-10 h-10 bg-lightGrayishBlue p-3 rounded-full"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var isMenuOpened = false;
+      const shareImg = document.findElementById("shareImg");
+      const shareBg = document.findElementById("shareBg");
+      const share = document.findElementById("share");
+      const details = document.findElementById("details");
+      function openMenu() {
+        console.log("Share clicked!");
+      }
+    </script>
   </body>
 </html>
